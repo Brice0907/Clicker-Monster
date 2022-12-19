@@ -1,0 +1,17 @@
+[
+    {
+        "name": "Dragon",
+        "picture": "../assets/dragon.png",
+        "hp": "16"
+    },
+    {
+        "name": "Oiseau",
+        "picture": "../assets/oiseau.png",
+        "hp": "10"
+    },
+    {
+        "name": "Pingouin",
+        "picture": "../assets/pingouin.png",
+        "hp": "13"
+    }
+]
