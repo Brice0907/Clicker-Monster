@@ -4,8 +4,11 @@ import monstre from './data/monstre.json'
 async function main() {
 
     let ATQdeBase = 1
+    let gold = 0
+    document.querySelector('.argent').innerText = gold
+
     const randomMonstre = monstre[Math.floor(Math.random() * 3)]
- // mettre les hp dans une let et remplace le rdmmonstre.hp
+
     let vie = randomMonstre.hp
     document.querySelector('.name').innerText = randomMonstre.name
     document.querySelector('.img').src = randomMonstre.picture
@@ -28,20 +31,23 @@ async function main() {
             document.querySelector('.hp').innerText = newMonstre.hp
 
             randomMonstre.hp = newMonstre.hp
-            
+            winGold()
             console.log("Monstre mort");
-            console.log(randomMonstre.hp);
-            console.log(newMonstre.hp);
+
             if (newMonstre.hp <= 0) {
                 randomMonstre.hp = vie
                 document.querySelector('.hp').innerText = randomMonstre.hp
-                console.log(randomMonstre.hp, "la sortie de secour");
             }
         }
     }
     targetMonstre.addEventListener("click", killMonstre)
     
-    
+    function winGold() {
+
+        gold = gold + JSON.parse(randomMonstre.gold)
+        document.querySelector('.argent').innerText = gold  //problème sur les golds la valeur ajouté reste celle du monstre du début
+
+    }
     
 }
 main()
