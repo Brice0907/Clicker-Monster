@@ -43,10 +43,8 @@ async function main() {
     targetMonstre.addEventListener("click", killMonstre)
     
     function winGold() {
-
-        gold = gold + JSON.parse(randomMonstre.gold)
-        document.querySelector('.argent').innerText = gold  //problème sur les golds la valeur ajouté reste celle du monstre du début
-
+        gold = gold + randomMonstre.gold[Math.floor(Math.random() * 3)]
+        document.querySelector('.argent').innerText = gold  
     }
     
 }
