@@ -162,6 +162,16 @@
     
 }
 
-// @media screen and (max-width: 769px){
-    
-// }
+@media screen and (max-width: 769px){
+    .body_section{
+        &_monstre{
+            width: 100%;
+            border-radius: 0px;
+            margin-bottom: 5px;
+        }
+        &_boutique{
+            width: 100%;
+            border-radius: 0px;
+        }
+    }
+}
