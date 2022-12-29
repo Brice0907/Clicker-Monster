@@ -17,7 +17,7 @@
 
   <section class="body_section">
 
-    <article class="body_section_monstre"> 
+    <article class="body_section_monstre">
       <div class="body_section_monstre_bloc">
         <div class="body_section_monstre_bloc_title name"></div>
         <img src="" alt="" class="body_section_monstre_bloc_img img">
@@ -35,12 +35,17 @@
       <div class="body_section_boutique_title">BOUTIQUE</div>
       <ul class="body_section_boutique_up">
 
-        <li class="body_section_boutique_up_bloc">                <!-- peut etre faire une balise <bouton> -->
-          <div class="body_section_boutique_up_bloc_lvl">LVL 1</div>
+        <li class="body_section_boutique_up_bloc atq_de_base"> <!-- peut etre faire une balise <bouton> -->
+          <div class="body_section_boutique_up_bloc_lvl">
+            <div>LVL</div>
+            <div class="body_section_boutique_up_bloc_lvl_space lvlATQ"></div>
+          </div>
           <div class="body_section_boutique_up_bloc_bas">
             <div class="body_section_boutique_up_bloc_bas_text">Augmente les dégats de 1</div>
             <div class="body_section_boutique_up_bloc_bas_price">
-              Price : 10 <i class="fa-solid fa-sack-dollar body_section_boutique_gold_logo"></i>
+              Price :
+              <div class="body_section_boutique_up_bloc_bas_price_nbr priceATQ"></div>
+              <i class="fa-solid fa-sack-dollar body_section_boutique_gold_logo"></i>
             </div>
           </div>
         </li>
@@ -79,3 +84,5 @@
 
 <!-- si un jour j'ajoute des pnj qui tape automatiquement regarder les images sur "subpng" -->
 <!-- idée de monstre qui se heal légèrement avec le temps ou boss -->
+<!-- idée dans la boutique, effet de saignement -->
+<!-- idée quand assez de gold pour faire une amélioration, faire apparaitre une flèche (circle-up) sur fontawesome -->

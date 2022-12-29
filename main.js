@@ -16,6 +16,9 @@ async function main() {
 
     const targetMonstre = document.querySelector('.body_section_monstre')
 
+
+            ///// FUNCTION TUER UN MONSTRE \\\\\
+
     function killMonstre() {
 
         randomMonstre.hp = randomMonstre.hp - ATQdeBase
@@ -42,10 +45,44 @@ async function main() {
     }
     targetMonstre.addEventListener("click", killMonstre)
     
+
+            ///// FUNCTION GAGNER DES GOLDS \\\\\
+
     function winGold() {
         gold = gold + randomMonstre.gold[Math.floor(Math.random() * 3)]
         document.querySelector('.argent').innerText = gold  
     }
     
+
+            ///// FUNCTION ATQ DE BASE \\\\\
+
+    let lvlUpgradeATQ = 1
+    let priceATQdeBase = 10
+
+    const targetATQshop = document.querySelector('.atq_de_base')
+    document.querySelector('.lvlATQ').innerText = lvlUpgradeATQ 
+    document.querySelector('.priceATQ').innerText = priceATQdeBase
+
+    function upgradeATQdeBase() {
+
+        if (gold >= priceATQdeBase) {
+
+            gold = gold - priceATQdeBase
+            document.querySelector('.argent').innerText = Math.trunc(gold)
+            lvlUpgradeATQ = lvlUpgradeATQ + 1
+            document.querySelector('.lvlATQ').innerText = lvlUpgradeATQ
+            ATQdeBase = ATQdeBase + 1
+            priceATQdeBase = priceATQdeBase * 1.80
+            document.querySelector('.priceATQ').innerText = Math.trunc(priceATQdeBase)
+
+        } else {
+            console.log('il me manque de l\'argent');
+        }
+
+
+    }
+    targetATQshop.addEventListener('click', upgradeATQdeBase)
+
+
 }
 main()

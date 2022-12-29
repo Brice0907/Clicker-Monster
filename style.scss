@@ -100,9 +100,14 @@
                     display: flex;
                     flex-direction: column;
                     justify-content: space-around;
+                    cursor: pointer;
                     &_lvl{
                         font-size: 19px;
                         font-weight: bold;
+                        display: flex;
+                        &_space{
+                            margin-left: 5px;
+                        }
                     }
                     &_bas{
                         display: flex;
@@ -113,6 +118,11 @@
                         &_price{
                             font-size: 17px;
                             font-weight: bold;
+                            display: flex;
+                            white-space: nowrap;
+                            &_nbr{
+                                margin: 0px 5px;
+                            }
                         }
                     }
                 }
