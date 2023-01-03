@@ -153,6 +153,20 @@
     width: 0px;
   }
 
+.anim{
+    max-width: 70px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 25px;
+    &_degats{
+        font-size: 25px;
+    }
+    &_epee{
+        width: 35px;
+    }
+}
+
 @media screen and (max-width: 1024px){
     .body{
         height: auto;

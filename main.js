@@ -13,12 +13,13 @@ async function main() {
     document.querySelector('.name').innerText = randomMonstre.name
     document.querySelector('.img').src = randomMonstre.picture
     document.querySelector('.hp').innerText = randomMonstre.hp
+    document.querySelector('.anim_degats').innerText = ATQdeBase
 
     const targetMonstre = document.querySelector('.body_section_monstre')
 
 
             ///// FUNCTION TUER UN MONSTRE \\\\\
-
+    
     function killMonstre() {
 
         randomMonstre.hp = randomMonstre.hp - ATQdeBase
@@ -72,13 +73,13 @@ async function main() {
             lvlUpgradeATQ = lvlUpgradeATQ + 1
             document.querySelector('.lvlATQ').innerText = lvlUpgradeATQ
             ATQdeBase = ATQdeBase + 1
+            document.querySelector('.anim_degats').innerText = ATQdeBase
             priceATQdeBase = priceATQdeBase * 1.80
             document.querySelector('.priceATQ').innerText = Math.trunc(priceATQdeBase)
 
         } else {
             console.log('il me manque de l\'argent');
         }
-
 
     }
     targetATQshop.addEventListener('click', upgradeATQdeBase)
