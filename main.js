@@ -1,5 +1,6 @@
 import './style.scss'
 import monstre from './data/monstre.json'
+// import { monstre } from './test.js'
 
 async function main() {
 
@@ -16,7 +17,6 @@ async function main() {
     document.querySelector('.anim_degats').innerText = ATQdeBase
 
     const targetMonstre = document.querySelector('.body_section_monstre')
-
 
             ///// FUNCTION TUER UN MONSTRE \\\\\
     
@@ -84,6 +84,15 @@ async function main() {
     }
     targetATQshop.addEventListener('click', upgradeATQdeBase)
 
+        ///// ANIM ATQ \\\\\
+
+    document.body.addEventListener('mousemove', function(event) {
+        const target = document.querySelector('.anim')
+        
+        target.style.left = event.clientX + 'px';
+        target.style.top = event.clientY + 'px';
+    })
+    
 
 }
 main()

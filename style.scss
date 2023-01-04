@@ -1,3 +1,5 @@
+@use 'animation';
+
 *{
     box-sizing: border-box;
     margin: 0px;
@@ -154,11 +156,14 @@
   }
 
 .anim{
+    position: absolute;
     max-width: 70px;
     display: flex;
     justify-content: space-around;
     align-items: center;
     font-size: 25px;
+    animation: ATQ;
+    pointer-events: none;
     &_degats{
         font-size: 25px;
     }
