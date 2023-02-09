@@ -1,6 +1,6 @@
 import './style.scss'
-import monstre from './data/monstre.json'
-// import { monstre } from './test.js'
+// import monstre from './data/monstre.json'
+import { monstre } from './test.js'
 
 async function main() {
 
@@ -14,20 +14,20 @@ async function main() {
     document.querySelector('.name').innerText = randomMonstre.name
     document.querySelector('.img').src = randomMonstre.picture
     document.querySelector('.hp').innerText = randomMonstre.hp
-    document.querySelector('.anim_degats').innerText = ATQdeBase
+    // document.querySelector('.anim_degats').innerText = ATQdeBase      // mettre dans la fonction de mon anim
 
     const targetMonstre = document.querySelector('.body_section_monstre')
 
-            ///// FUNCTION TUER UN MONSTRE \\\\\
-    
+    ///// FUNCTION TUER UN MONSTRE \\\\\
+
     function killMonstre() {
 
         randomMonstre.hp = randomMonstre.hp - ATQdeBase
         console.log(randomMonstre.hp);
-        
+
         document.querySelector('.hp').innerText = randomMonstre.hp
 
-        if(randomMonstre.hp <= 0) {
+        if (randomMonstre.hp <= 0) {
 
             const newMonstre = monstre[Math.floor(Math.random() * 3)]
             document.querySelector('.name').innerText = newMonstre.name
@@ -45,23 +45,23 @@ async function main() {
         }
     }
     targetMonstre.addEventListener("click", killMonstre)
-    
 
-            ///// FUNCTION GAGNER DES GOLDS \\\\\
+
+    ///// FUNCTION GAGNER DES GOLDS \\\\\
 
     function winGold() {
         gold = gold + randomMonstre.gold[Math.floor(Math.random() * 3)]
-        document.querySelector('.argent').innerText = gold  
+        document.querySelector('.argent').innerText = gold
     }
-    
 
-            ///// FUNCTION ATQ DE BASE \\\\\
+
+    ///// FUNCTION ATQ DE BASE \\\\\
 
     let lvlUpgradeATQ = 1
     let priceATQdeBase = 10
 
     const targetATQshop = document.querySelector('.atq_de_base')
-    document.querySelector('.lvlATQ').innerText = lvlUpgradeATQ 
+    document.querySelector('.lvlATQ').innerText = lvlUpgradeATQ
     document.querySelector('.priceATQ').innerText = priceATQdeBase
 
     function upgradeATQdeBase() {
@@ -84,15 +84,8 @@ async function main() {
     }
     targetATQshop.addEventListener('click', upgradeATQdeBase)
 
-        ///// ANIM ATQ \\\\\
+    ///// ANIM ATQ \\\\\
 
-    document.body.addEventListener('mousemove', function(event) {
-        const target = document.querySelector('.anim')
-        
-        target.style.left = event.clientX + 'px';
-        target.style.top = event.clientY + 'px';
-    })
-    
 
 }
 main()

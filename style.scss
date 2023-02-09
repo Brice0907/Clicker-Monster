@@ -1,31 +1,39 @@
 @use 'animation';
 
-*{
+* {
     box-sizing: border-box;
     margin: 0px;
     padding: 0px;
 }
 
-.body{
+.none {
+    display: none;
+}
+
+.body {
     margin: auto;
     max-width: 1350px;
     height: 937px;
     background: linear-gradient(#9ecfff, #5da8a7);
-    &_header{
+
+    &_header {
         padding-top: 12px;
         margin-bottom: 35px;
-        text-align: center; 
-        &_title{
+        text-align: center;
+
+        &_title {
             font-family: 'Rubik Glitch', cursive;
             font-size: 43px;
             font-weight: 500;
             text-shadow: 2px 2px rgb(255, 0, 0);
         }
     }
-    &_section{
+
+    &_section {
         display: flex;
         justify-content: space-around;
-        &_monstre{
+
+        &_monstre {
             border: 3px solid rgb(212, 212, 212);
             background: rgb(228, 228, 228);
             width: 45%;
@@ -35,44 +43,53 @@
             flex-direction: column;
             justify-content: center;
             cursor: pointer;
-            &_bloc{
+
+            &_bloc {
                 text-align: center;
-                &_title{
+
+                &_title {
                     margin-bottom: 15px;
                     font-size: 21px;
                 }
-                &_img{
-                    max-width: 300px;  
+
+                &_img {
+                    max-width: 300px;
                 }
             }
-            &_vie{
+
+            &_vie {
                 margin-top: 10px;
                 text-align: center;
-                &_barre{
+
+                &_barre {
                     border: 2px solid black;
                     // background: green;
                     width: 200px;
                     margin: auto;
                 }
-                &_hp{
+
+                &_hp {
                     display: flex;
                     justify-content: center;
                     font-size: 18px;
                     font-weight: bold;
-                    &_text{
+
+                    &_text {
                         margin-right: 5px;
                     }
                 }
             }
         }
-        &_boutique{
+
+        &_boutique {
             border: 3px solid rgb(212, 212, 212);
             background: wheat;
             width: 45%;
             border-radius: 15px;
             height: 500px;
             padding: 15px 0px;
-            &_title{
+
+            &_title {
                 border: 2px solid black;
                 margin: auto;
                 padding: 5px 0px;
@@ -83,7 +100,8 @@
                 font-size: 20px;
                 background: white;
             }
-            &_up{
+
+            &_up {
                 height: 370px;
                 margin: 10px 5px;
                 padding: 5px 5px;
@@ -92,7 +110,8 @@
                 border-radius: 15px;
                 list-style-type: none;
                 overflow-x: hidden;
-                &_bloc{
+
+                &_bloc {
                     border: 2px solid black;
                     background: rgb(228, 228, 228);
                     border-radius: 10px;
@@ -103,33 +122,40 @@
                     flex-direction: column;
                     justify-content: space-around;
                     cursor: pointer;
-                    &_lvl{
+
+                    &_lvl {
                         font-size: 19px;
                         font-weight: bold;
                         display: flex;
-                        &_space{
+
+                        &_space {
                             margin-left: 5px;
                         }
                     }
-                    &_bas{
+
+                    &_bas {
                         display: flex;
                         justify-content: space-between;
-                        &_text{
+
+                        &_text {
                             font-size: 17px;
                         }
-                        &_price{
+
+                        &_price {
                             font-size: 17px;
                             font-weight: bold;
                             display: flex;
                             white-space: nowrap;
-                            &_nbr{
+
+                            &_nbr {
                                 margin: 0px 5px;
                             }
                         }
                     }
                 }
             }
-            &_gold{
+
+            &_gold {
                 margin: auto;
                 border: 2px solid black;
                 border-radius: 15px;
@@ -139,11 +165,13 @@
                 justify-content: center;
                 font-size: 20px;
                 background: white;
-                &_argent{
+
+                &_argent {
                     margin-right: 10px;
                     font-weight: bold;
                 }
-                &_logo{
+
+                &_logo {
                     color: rgba(255, 166, 0, 0.678);
                 }
             }
@@ -153,52 +181,57 @@
 
 ::-webkit-scrollbar {
     width: 0px;
-  }
-
-.anim{
-    position: absolute;
-    max-width: 70px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    font-size: 25px;
-    animation: ATQ;
-    pointer-events: none;
-    &_degats{
-        font-size: 25px;
-    }
-    &_epee{
-        width: 35px;
-    }
 }
 
-@media screen and (max-width: 1024px){
-    .body{
+// .anim{
+//     position: absolute;
+//     max-width: 15px;
+
+//     display: flex;
+//     justify-content: space-around;
+//     align-items: center;
+//     font-size: 18px;
+//     font-weight: bold;
+//     animation: ATQ;
+//     animation-duration: 3s;
+//     pointer-events: none;
+//     // display: none;
+//     &_degats{
+//         font-size: 18px;
+//     }
+// }
+
+@media screen and (max-width: 1024px) {
+    .body {
         height: auto;
-        &_section{
+
+        &_section {
             flex-direction: column;
             align-items: center;
-            &_monstre{
+
+            &_monstre {
                 margin-bottom: 20px;
                 width: 80%;
-            }  
-            &_boutique{
+            }
+
+            &_boutique {
                 margin-bottom: 20px;
                 width: 80%;
             }
         }
     }
-    
+
 }
 
-@media screen and (max-width: 769px){
-    .body_section{
-        &_monstre{
+@media screen and (max-width: 769px) {
+    .body_section {
+        &_monstre {
             width: 100%;
             border-radius: 0px;
             margin-bottom: 5px;
         }
-        &_boutique{
+
+        &_boutique {
             width: 100%;
             border-radius: 0px;
         }
