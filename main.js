@@ -1,6 +1,5 @@
 import './style.scss'
-// import monstre from './data/monstre.json'
-import { monstre } from './test.js'
+import { monstre } from './monstre.js'
 
 async function main() {
 
@@ -18,14 +17,28 @@ async function main() {
 
     const targetMonstre = document.querySelector('.body_section_monstre')
 
+    const color = document.querySelector('.color')
+    let midHP = Math.ceil(randomMonstre.hp * 0.60)
+    let lowHP = Math.ceil(randomMonstre.hp * 0.30)
+
     ///// FUNCTION TUER UN MONSTRE \\\\\
 
     function killMonstre() {
 
+        console.log(lowHP);
+        console.log(midHP);
+
+        if (midHP >= randomMonstre.hp) {
+            color.setAttribute("style", "background-color:orange;")
+            if (lowHP >= randomMonstre.hp) {
+                color.setAttribute('style', "background-color:red;")
+            }
+        }
         randomMonstre.hp = randomMonstre.hp - ATQdeBase
         console.log(randomMonstre.hp);
 
         document.querySelector('.hp').innerText = randomMonstre.hp
+
 
         if (randomMonstre.hp <= 0) {
 
@@ -33,13 +46,17 @@ async function main() {
             document.querySelector('.name').innerText = newMonstre.name
             document.querySelector('.img').src = newMonstre.picture
             document.querySelector('.hp').innerText = newMonstre.hp
-
+            color.setAttribute('style', "background-color:rgb(0, 211, 0);")
             randomMonstre.hp = newMonstre.hp
+            midHP = Math.ceil(newMonstre.hp * 0.60)
+            lowHP = Math.ceil(newMonstre.hp * 0.30)
             winGold()
             console.log("Monstre mort");
 
             if (newMonstre.hp <= 0) {
                 randomMonstre.hp = vie
+                midHP = Math.ceil(randomMonstre.hp * 0.60)
+                lowHP = Math.ceil(randomMonstre.hp * 0.30)
                 document.querySelector('.hp').innerText = randomMonstre.hp
             }
         }
@@ -73,7 +90,7 @@ async function main() {
             lvlUpgradeATQ = lvlUpgradeATQ + 1
             document.querySelector('.lvlATQ').innerText = lvlUpgradeATQ
             ATQdeBase = ATQdeBase + 1
-            document.querySelector('.anim_degats').innerText = ATQdeBase
+            // document.querySelector('.anim_degats').innerText = ATQdeBase
             priceATQdeBase = priceATQdeBase * 1.80
             document.querySelector('.priceATQ').innerText = Math.trunc(priceATQdeBase)
 

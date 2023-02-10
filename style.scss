@@ -10,6 +10,10 @@
     display: none;
 }
 
+.color {
+    background-color: rgb(0, 211, 0);
+}
+
 .body {
     margin: auto;
     max-width: 1350px;
@@ -63,19 +67,17 @@
 
                 &_barre {
                     border: 2px solid black;
-                    // background: green;
+                    border-radius: 3px;
+                    height: 22px;
                     width: 200px;
                     margin: auto;
-                }
-
-                &_hp {
                     display: flex;
                     justify-content: center;
-                    font-size: 18px;
+                    font-size: 17px;
                     font-weight: bold;
 
                     &_text {
-                        margin-right: 5px;
+                        margin-right: 2px;
                     }
                 }
             }
@@ -183,10 +185,9 @@
     width: 0px;
 }
 
-// .anim{
+// .anim {
 //     position: absolute;
-//     max-width: 15px;
-
+//     // max-width: 15px;
 //     display: flex;
 //     justify-content: space-around;
 //     align-items: center;
@@ -195,8 +196,9 @@
 //     animation: ATQ;
 //     animation-duration: 3s;
 //     pointer-events: none;
+
 //     // display: none;
-//     &_degats{
+//     &_degats {
 //         font-size: 18px;
 //     }
 // }
