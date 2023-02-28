@@ -68,7 +68,7 @@ async function main() {
 
     function winGold() {
         gold = gold + randomMonstre.gold[Math.floor(Math.random() * 3)]
-        document.querySelector('.argent').innerText = gold
+        document.querySelector('.argent').innerText = Math.trunc(gold)
     }
 
 
