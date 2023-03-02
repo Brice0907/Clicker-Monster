@@ -10,6 +10,10 @@
     display: none;
 }
 
+.flex {
+    display: flex;
+}
+
 .color {
     background-color: rgb(0, 211, 0);
 }
@@ -47,6 +51,34 @@
             flex-direction: column;
             justify-content: center;
             cursor: pointer;
+            padding-bottom: 20px;
+
+            &_stage {
+                display: flex;
+                justify-content: end;
+                padding-right: 40px;
+
+                &_bloc {
+                    font-weight: bold;
+                    font-size: 19px;
+                    width: 85px;
+                    height: 55px;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    border: 2px solid black;
+                    justify-content: center;
+                    border-radius: 5px;
+
+                    &_text {
+                        margin-left: 5px;
+                    }
+
+                    &_number {
+                        margin-right: 5px;
+                    }
+                }
+            }
 
             &_bloc {
                 text-align: center;

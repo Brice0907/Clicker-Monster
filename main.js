@@ -25,9 +25,6 @@ async function main() {
 
     function killMonstre() {
 
-        console.log(lowHP);
-        console.log(midHP);
-
         if (midHP >= randomMonstre.hp) {
             color.setAttribute("style", "background-color:orange;")
             if (lowHP >= randomMonstre.hp) {
@@ -51,6 +48,7 @@ async function main() {
             midHP = Math.ceil(newMonstre.hp * 0.60)
             lowHP = Math.ceil(newMonstre.hp * 0.30)
             winGold()
+            compteur()
             console.log("Monstre mort");
 
             if (newMonstre.hp <= 0) {
@@ -101,8 +99,23 @@ async function main() {
     }
     targetATQshop.addEventListener('click', upgradeATQdeBase)
 
-    ///// ANIM ATQ \\\\\
+    ///// COMPTEUR \\\\\
+    let count = 1
+    let stage = 1
+    document.querySelector('.stage').innerText = stage
+    document.querySelector('.count').innerText = count
 
+    function compteur() {
+        count++
+        document.querySelector('.count').innerText = count
+        console.log("C'est le compteur", count)
+        if (count === 11) {
+            count = 1
+            document.querySelector('.count').innerText = count
+            stage++
+            document.querySelector('.stage').innerText = stage
+        }
+    }
 
 }
 main()
