@@ -100,6 +100,7 @@ async function main() {
     targetATQshop.addEventListener('click', upgradeATQdeBase)
 
     ///// COMPTEUR \\\\\
+
     let count = 1
     let stage = 1
     document.querySelector('.stage').innerText = stage

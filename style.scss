@@ -52,6 +52,7 @@
             justify-content: center;
             cursor: pointer;
             padding-bottom: 20px;
+            user-select: none;
 
             &_stage {
                 display: flex;
