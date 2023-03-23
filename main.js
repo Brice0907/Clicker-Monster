@@ -3,6 +3,8 @@ import { monstre } from './monstre.js'
 
 async function main() {
 
+    // const storage = JSON.parse(localStorage.getItem('')) || []
+
     let ATQdeBase = 1
     let gold = 0
     document.querySelector('.argent').innerText = gold
@@ -72,12 +74,16 @@ async function main() {
 
     ///// FUNCTION ATQ DE BASE \\\\\
 
+    const spellATQ = JSON.parse(localStorage.getItem('upgradeATQ')) || []
+
+    console.log(spellATQ);
+
     let lvlUpgradeATQ = 1
     let priceATQdeBase = 10
 
     const targetATQshop = document.querySelector('.atq_de_base')
-    document.querySelector('.lvlATQ').innerText = lvlUpgradeATQ
-    document.querySelector('.priceATQ').innerText = priceATQdeBase
+    document.querySelector('.lvlATQ').innerText = spellATQ.level ? spellATQ.level : lvlUpgradeATQ
+    document.querySelector('.priceATQ').innerText = spellATQ.price ? spellATQ.price : priceATQdeBase
 
     function upgradeATQdeBase() {
 
@@ -92,14 +98,25 @@ async function main() {
             priceATQdeBase = priceATQdeBase * 1.80
             document.querySelector('.priceATQ').innerText = Math.trunc(priceATQdeBase)
 
+            let upgradeATQ = {
+                level: lvlUpgradeATQ,
+                price: priceATQdeBase,
+            }
+
+            localStorage.setItem('upgradeATQ', JSON.stringify(upgradeATQ))
+
         } else {
             console.log('il me manque de l\'argent');
+            console.log("lvl de l'attaque", lvlUpgradeATQ);
+            console.log("dommage de base", ATQdeBase);
+            console.log("prix upgrade attaque ", priceATQdeBase);
         }
 
     }
     targetATQshop.addEventListener('click', upgradeATQdeBase)
 
-    ///// COMPTEUR \\\\\
+
+    ///// STAGE \\\\\
 
     let count = 1
     let stage = 1
@@ -120,3 +137,5 @@ async function main() {
 
 }
 main()
+
+// pour le système de compte a rebour de boss, utiliser : setTimeout() et pour cancel : clearTimeout()
