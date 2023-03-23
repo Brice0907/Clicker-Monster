@@ -3,9 +3,9 @@ import { monstre } from './monstre.js'
 
 async function main() {
 
-    // const storage = JSON.parse(localStorage.getItem('')) || []
+    const degat = JSON.parse(localStorage.getItem('degat')) || []
 
-    let ATQdeBase = 1
+    let ATQdeBase = degat.damage ? degat.damage : 1
     let gold = 0
     document.querySelector('.argent').innerText = gold
 
@@ -76,8 +76,6 @@ async function main() {
 
     const spellATQ = JSON.parse(localStorage.getItem('upgradeATQ')) || []
 
-    console.log(spellATQ);
-
     let lvlUpgradeATQ = 1
     let priceATQdeBase = 10
 
@@ -102,8 +100,12 @@ async function main() {
                 level: lvlATQ,
                 price: priceATQ,
             }
-
             localStorage.setItem('upgradeATQ', JSON.stringify(upgradeATQ))
+
+            let degat = {
+                damage: ATQdeBase,
+            }
+            localStorage.setItem('degat', JSON.stringify(degat))
 
         } else {
             console.log('il me manque de l\'argent');
