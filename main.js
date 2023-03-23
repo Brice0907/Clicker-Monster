@@ -82,34 +82,31 @@ async function main() {
     let priceATQdeBase = 10
 
     const targetATQshop = document.querySelector('.atq_de_base')
-    document.querySelector('.lvlATQ').innerText = spellATQ.level ? spellATQ.level : lvlUpgradeATQ
-    document.querySelector('.priceATQ').innerText = spellATQ.price ? spellATQ.price : priceATQdeBase
+    let lvlATQ = document.querySelector('.lvlATQ').innerText = spellATQ.level ? spellATQ.level : lvlUpgradeATQ
+    let priceATQ = document.querySelector('.priceATQ').innerText = spellATQ.price ? Math.trunc(spellATQ.price) : priceATQdeBase
 
     function upgradeATQdeBase() {
 
-        if (gold >= priceATQdeBase) {
+        if (gold >= priceATQ) {
 
-            gold = gold - priceATQdeBase
+            gold = gold - priceATQ
             document.querySelector('.argent').innerText = Math.trunc(gold)
-            lvlUpgradeATQ = lvlUpgradeATQ + 1
-            document.querySelector('.lvlATQ').innerText = lvlUpgradeATQ
+            lvlATQ = lvlATQ + 1
+            document.querySelector('.lvlATQ').innerText = lvlATQ
             ATQdeBase = ATQdeBase + 1
             // document.querySelector('.anim_degats').innerText = ATQdeBase
-            priceATQdeBase = priceATQdeBase * 1.80
-            document.querySelector('.priceATQ').innerText = Math.trunc(priceATQdeBase)
+            priceATQ = priceATQ * 1.80
+            document.querySelector('.priceATQ').innerText = Math.trunc(priceATQ)
 
             let upgradeATQ = {
-                level: lvlUpgradeATQ,
-                price: priceATQdeBase,
+                level: lvlATQ,
+                price: priceATQ,
             }
 
             localStorage.setItem('upgradeATQ', JSON.stringify(upgradeATQ))
 
         } else {
             console.log('il me manque de l\'argent');
-            console.log("lvl de l'attaque", lvlUpgradeATQ);
-            console.log("dommage de base", ATQdeBase);
-            console.log("prix upgrade attaque ", priceATQdeBase);
         }
 
     }
