@@ -3,10 +3,10 @@ import { monstre } from './monstre.js'
 
 async function main() {
 
-    const degat = JSON.parse(localStorage.getItem('degat')) || []
+    const stat = JSON.parse(localStorage.getItem('stat')) || []
 
-    let ATQdeBase = degat.damage ? degat.damage : 1
-    let gold = 0
+    let ATQdeBase = stat.damage ? stat.damage : 1
+    let gold = 0 // faire le localStorage pour les golds
     document.querySelector('.argent').innerText = gold
 
     const randomMonstre = monstre[Math.floor(Math.random() * 3)]
@@ -74,14 +74,12 @@ async function main() {
 
     ///// FUNCTION ATQ DE BASE \\\\\
 
-    const spellATQ = JSON.parse(localStorage.getItem('upgradeATQ')) || []
-
     let lvlUpgradeATQ = 1
     let priceATQdeBase = 10
 
     const targetATQshop = document.querySelector('.atq_de_base')
-    let lvlATQ = document.querySelector('.lvlATQ').innerText = spellATQ.level ? spellATQ.level : lvlUpgradeATQ
-    let priceATQ = document.querySelector('.priceATQ').innerText = spellATQ.price ? Math.trunc(spellATQ.price) : priceATQdeBase
+    let lvlATQ = document.querySelector('.lvlATQ').innerText = stat.levelAttaque ? stat.levelAttaque : lvlUpgradeATQ
+    let priceATQ = document.querySelector('.priceATQ').innerText = stat.priceAttaque ? Math.trunc(stat.priceAttaque) : priceATQdeBase
 
     function upgradeATQdeBase() {
 
@@ -96,16 +94,12 @@ async function main() {
             priceATQ = priceATQ * 1.80
             document.querySelector('.priceATQ').innerText = Math.trunc(priceATQ)
 
-            let upgradeATQ = {
-                level: lvlATQ,
-                price: priceATQ,
-            }
-            localStorage.setItem('upgradeATQ', JSON.stringify(upgradeATQ))
-
-            let degat = {
+            let stat = {
+                levelAttaque: lvlATQ,
+                priceAttaque: priceATQ,
                 damage: ATQdeBase,
             }
-            localStorage.setItem('degat', JSON.stringify(degat))
+            localStorage.setItem('stat', JSON.stringify(stat))
 
         } else {
             console.log('il me manque de l\'argent');
