@@ -4,6 +4,7 @@ import { monstre } from './monstre.js'
 async function main() {
 
     const stat = JSON.parse(localStorage.getItem('stat')) || []
+    const etage = JSON.parse(localStorage.getItem('stage')) || []
 
     let ATQdeBase = stat.damage ? stat.damage : 1
     let gold = stat.gold ? stat.gold : 0
@@ -74,7 +75,7 @@ async function main() {
             levelAttaque: lvlATQ,
             priceAttaque: priceATQ,
             damage: ATQdeBase,
-            gold: gold,
+            gold: Math.trunc(gold),
         }
         localStorage.setItem('stat', JSON.stringify(stat))
     }
@@ -104,9 +105,9 @@ async function main() {
 
             let stat = {
                 levelAttaque: lvlATQ,
-                priceAttaque: priceATQ,
+                priceAttaque: Math.trunc(priceATQ),
                 damage: ATQdeBase,
-                gold: gold,
+                gold: Math.trunc(gold),
             }
             localStorage.setItem('stat', JSON.stringify(stat))
 
@@ -120,20 +121,31 @@ async function main() {
 
     ///// STAGE \\\\\
 
-    let count = 1
-    let stage = 1
+    let count = etage.etape ? etage.etape : 1
+    let stage = etage.stage ? etage.stage : 1
     document.querySelector('.stage').innerText = stage
     document.querySelector('.count').innerText = count
 
     function compteur() {
         count++
         document.querySelector('.count').innerText = count
-        console.log("C'est le compteur", count)
+
+        let etape = {
+            etape: count,
+            stage: stage,
+        }
+        localStorage.setItem('stage', JSON.stringify(etape))
+
         if (count === 11) {
             count = 1
             document.querySelector('.count').innerText = count
             stage++
             document.querySelector('.stage').innerText = stage
+            let etape = {
+                etape: count,
+                stage: stage,
+            }
+            localStorage.setItem('stage', JSON.stringify(etape))
         }
     }
 
