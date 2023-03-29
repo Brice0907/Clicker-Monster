@@ -6,7 +6,7 @@ async function main() {
     const stat = JSON.parse(localStorage.getItem('stat')) || []
 
     let ATQdeBase = stat.damage ? stat.damage : 1
-    let gold = 0 // faire le localStorage pour les golds
+    let gold = stat.gold ? stat.gold : 0
     document.querySelector('.argent').innerText = gold
 
     const randomMonstre = monstre[Math.floor(Math.random() * 3)]
@@ -69,6 +69,14 @@ async function main() {
     function winGold() {
         gold = gold + randomMonstre.gold[Math.floor(Math.random() * 3)]
         document.querySelector('.argent').innerText = Math.trunc(gold)
+
+        let stat = {
+            levelAttaque: lvlATQ,
+            priceAttaque: priceATQ,
+            damage: ATQdeBase,
+            gold: gold,
+        }
+        localStorage.setItem('stat', JSON.stringify(stat))
     }
 
 
@@ -98,6 +106,7 @@ async function main() {
                 levelAttaque: lvlATQ,
                 priceAttaque: priceATQ,
                 damage: ATQdeBase,
+                gold: gold,
             }
             localStorage.setItem('stat', JSON.stringify(stat))
 
